@@ -1,0 +1,1 @@
+ssh -i "SVProject.pem" root@ec2-18-217-223-132.us-east-2.compute.amazonaws.com
