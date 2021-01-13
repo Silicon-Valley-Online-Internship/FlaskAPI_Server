@@ -23,5 +23,5 @@ if __name__=="__main__":
     model.load_weights("model_weight_10.h5")
 
     preds = model.predict(data)
-
     print(preds)
+    print(np.argmax(preds))
