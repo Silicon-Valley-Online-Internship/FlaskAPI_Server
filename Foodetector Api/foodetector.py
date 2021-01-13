@@ -3,6 +3,8 @@ from PIL import Image, ImageOps
 import numpy as np
 import json
 from collections import OrderedDict
+import sys
+import os
 
 #전체적인 흐름
 #모델 및 딕셔너리 파일 로드 -> 분류 -> 결과파일을 json파일로 출력
@@ -27,8 +29,10 @@ with open('labels.txt', 'r') as temp:
 # 정확히 무슨동작하는지 모르겠음
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
+#path_string = os.path.abspath(sys.argv[1])
+# 바보 최용석
 # 이미지 파일을 위의 data배열의 크기에 맞게 조정하고 가운데 중심으로 주변을 깎기
-image = Image.open('3569175.jpg')
+image = Image.open(os.path.abspath(sys.argv[1])) # 파이썬 실행 시 매개변수로 입력된 파일을 open
 size = (224, 224)
 image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
@@ -63,11 +67,3 @@ for j in pred_trans_1d:
 #원핫 벡터의 해당해는 순서의 레이블 결과가 딕셔녀리형의 json으로 들어감
 labels["result"] = txt_array[index]
 print(json.dumps(labels, ensure_ascii=False, indent="\t"))
-
-
-
-
-
-
-
-
