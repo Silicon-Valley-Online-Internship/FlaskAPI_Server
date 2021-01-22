@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fooditector</title>
+</head>
+<body>
+<!-- flask api 주소에다가 Post 요청하기 -->
+<form action = "http://18.217.223.132:5000/fileUpload" method = "POST"
+      enctype = "multipart/form-data">
+    <input type="file" accept="image/*" name="image" />
+    <input type="submit"/>
+</form>
+
+<!--해당 웹페이지가  index.html 인지, Prediction.html인지확인하기 위한 문장-->
+index.html 렌더링 파일입니다.
+</body>
+</html>
